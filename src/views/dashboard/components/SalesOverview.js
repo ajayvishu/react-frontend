@@ -20,11 +20,7 @@ const SalesOverview = () => {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('ModernizeToken');
-
-      const response = await ApiService.get('student/storenodata', {
-        Authorization: `Bearer ${token}`,
-      });
+      const response = await ApiService.get('student/storenodata');
       if (response.status === 200) {
         setStoreNo(response.data);
         // Set default selected store to the first one in the response data

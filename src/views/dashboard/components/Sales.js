@@ -30,11 +30,7 @@ const Sales = () => {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const token = localStorage.getItem('ModernizeToken');
-            const response = await ApiService.get('student/salesdata', {
-                Authorization: `Bearer ${token}`,
-            });
-
+            const response = await ApiService.get('student/salesdata');
             if (response.status === 200) {
                 setSales(response.data);
             } else {
@@ -100,7 +96,7 @@ const Sales = () => {
                     >
                         <TableHead>
                             <TableRow key="SaleID">
-                                <TableCell key="UniqueSessionId">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}
@@ -109,7 +105,7 @@ const Sales = () => {
                                         Unique Id
                                     </Typography>
                                 </TableCell>
-                                <TableCell key="SaleID">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}
@@ -118,7 +114,7 @@ const Sales = () => {
                                         Sale Id
                                     </Typography>
                                 </TableCell>
-                                <TableCell key="StoreID">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}
@@ -127,7 +123,7 @@ const Sales = () => {
                                         Store Id
                                     </Typography>
                                 </TableCell>
-                                <TableCell key="SaleQty">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}
@@ -136,7 +132,7 @@ const Sales = () => {
                                         Sale Qty
                                     </Typography>
                                 </TableCell>
-                                <TableCell key="SaleTotal">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}
@@ -145,7 +141,7 @@ const Sales = () => {
                                         Sale Total
                                     </Typography>
                                 </TableCell>
-                                <TableCell key="SaleUserName">
+                                <TableCell>
                                     <Typography
                                         variant="subtitle2"
                                         fontWeight={600}

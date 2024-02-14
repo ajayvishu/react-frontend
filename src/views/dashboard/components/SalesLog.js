@@ -31,10 +31,7 @@ const SalesLog = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-
-      const token = localStorage.getItem('ModernizeToken');
-      const response = await ApiService.get('student/saleslogdata',{Authorization: `Bearer ${token}`,});
-
+      const response = await ApiService.get('student/saleslogdata');
       if (response.status === 200) {
         setSalesLog(response.data);
       } else {

@@ -39,7 +39,6 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
 
       if (response.status === 200) {
         navigate('/auth/login');
-        console.log('successfully register');
       } else {
         setError('something went to wrong!');
       }

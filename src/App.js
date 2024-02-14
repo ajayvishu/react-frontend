@@ -16,7 +16,7 @@ function App() {
 
     if(currentPath === '/auth/register'){
       navigate(currentPath);
-      return
+      return;
     }
 
     if (token === null || token === '') {

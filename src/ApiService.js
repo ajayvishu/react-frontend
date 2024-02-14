@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASEURL;
+const BASE_URL = process.env.DOTNET_APP_BASEURL;
 
 const token = localStorage.getItem('ModernizeToken');
 

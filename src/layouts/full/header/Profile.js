@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Box,
@@ -8,7 +8,7 @@ import {
   IconButton,
   MenuItem,
   ListItemIcon,
-  ListItemText
+  ListItemText,
 } from '@mui/material';
 
 import { IconListCheck, IconMail, IconUser } from '@tabler/icons';
@@ -16,12 +16,17 @@ import { IconListCheck, IconMail, IconUser } from '@tabler/icons';
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
 
 const Profile = () => {
+  const navigate = useNavigate();
   const [anchorEl2, setAnchorEl2] = useState(null);
   const handleClick2 = (event) => {
     setAnchorEl2(event.currentTarget);
   };
   const handleClose2 = () => {
     setAnchorEl2(null);
+  };
+  const handleLogOut = () => {
+    localStorage.setItem('ModernizeToken', '');
+    navigate('/auth/login');
   };
 
   return (
@@ -84,7 +89,13 @@ const Profile = () => {
           <ListItemText>My Tasks</ListItemText>
         </MenuItem>
         <Box mt={1} py={1} px={2}>
-          <Button to="/auth/login" variant="outlined" color="primary" component={Link} fullWidth>
+          <Button
+            onClick={handleLogOut}
+            variant="outlined"
+            color="primary"
+            //component={Link}
+            fullWidth
+          >
             Logout
           </Button>
         </Box>

@@ -12,10 +12,18 @@ function App() {
   
   useEffect(() => {
     const token = localStorage.getItem('ModernizeToken');
+    const currentPath = window.location.pathname;
+
+    if(currentPath === '/auth/register'){
+      navigate(currentPath);
+      return
+    }
 
     if (token === null || token === '') {
       // Redirect to login if token is null
       navigate('/auth/login');
+    }else{
+      navigate('dashboard')
     }
   }, [navigate]);
 

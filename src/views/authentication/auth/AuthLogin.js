@@ -11,7 +11,7 @@ import {
   CircularProgress,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import ApiService from '../../../ApiService';
+import axios from 'axios';
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 
 const AuthLogin = ({ title, subtitle, subtext }) => {
@@ -31,10 +31,12 @@ const AuthLogin = ({ title, subtitle, subtext }) => {
 
       setLoading(true);
 
-      // Delay the login attempt for 10 seconds
+      // Delay the login attempt for 5 seconds
       await new Promise((resolve) => setTimeout(resolve, 5000));
+      
+      const BASE_URL = process.env.REACT_APP_BASEURL;
 
-      const response = await ApiService.post('userlogin', {
+      const response = await axios.post(BASE_URL + '/userlogin', {
         username: username,
         password: password,
       });

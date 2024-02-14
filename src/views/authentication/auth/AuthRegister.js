@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import CustomTextField from '../../../components/forms/theme-elements/CustomTextField';
 import { Stack } from '@mui/system';
-import ApiService from 'src/ApiService';
+import axios from 'axios';
 
 const AuthRegister = ({ title, subtitle, subtext }) => {
   const navigate = useNavigate();
@@ -31,7 +31,9 @@ const AuthRegister = ({ title, subtitle, subtext }) => {
 
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      const response = await ApiService.post('userregister', {
+      const BASE_URL = process.env.REACT_APP_BASEURL;
+
+      const response = await axios.post(BASE_URL + '/userregister', {
         username: username,
         password: password,
         emailaddress: emailaddress,

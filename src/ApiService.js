@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://msp.dotnetapi.com';
+const BASE_URL = process.env.REACT_APP_BASEURL;
 
 const ApiService = {
   get: async (url, headers = {}) => {
